@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/nav_main"
+    app:startDestination="@id/coloringListFragment">
+
+    <fragment
+        android:id="@+id/coloringListFragment"
+        android:name="com.justplay.coloringgame.fragment.ColoringListFragment"
+        android:label="fragment_coloring_list"
+        tools:layout="@layout/fragment_coloring_list" >
+        <action
+            android:id="@+id/action_coloringListFragment_to_coloringPlayFragment"
+            app:destination="@id/coloringPlayFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/coloringPlayFragment"
+        android:name="com.justplay.coloringgame.fragment.ColoringPlayFragment"
+        android:label="fragment_coloring_play"
+        tools:layout="@layout/fragment_coloring_play" >
+        <argument
+            android:name="stage"
+            app:argType="integer"
+            android:defaultValue="1"/>
+    </fragment>
+</navigation>
