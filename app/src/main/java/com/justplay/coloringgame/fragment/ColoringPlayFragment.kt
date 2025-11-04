@@ -35,8 +35,8 @@ class ColoringPlayFragment : Fragment() {
             }
         }
 
-        val outlineResource = intArrayOf(R.raw.outline, R.raw.outline_44, R.raw.outline_other)
-        val regionIdMapResource = intArrayOf(R.raw.region_id_map, R.raw.region_id_map_44, R.raw.region_id_map_other)
+        val outlineResource = intArrayOf(R.raw.outline, R.raw.outline_other, R.raw.outline_44)
+        val regionIdMapResource = intArrayOf(R.raw.region_id_map, R.raw.region_id_map_other, R.raw.region_id_map_44)
 
         val outline = loadBitmap(outlineResource[stage])
         val idMap = loadBitmap(regionIdMapResource[stage])

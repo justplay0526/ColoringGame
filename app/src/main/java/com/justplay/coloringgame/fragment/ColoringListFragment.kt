@@ -12,7 +12,7 @@ import com.justplay.coloringgame.databinding.FragmentColoringListBinding
 
 class ColoringListFragment : Fragment() {
     private val binding by lazy { FragmentColoringListBinding.inflate(layoutInflater) }
-    private val outlineRes = intArrayOf(R.raw.outline, R.raw.outline_44, R.raw.outline_other)
+    private val outlineRes = intArrayOf(R.raw.outline, R.raw.outline_other, R.raw.outline_44)
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?): View? {
@@ -29,6 +29,4 @@ class ColoringListFragment : Fragment() {
             findNavController().navigate(action)
         }
     }
-
-
 }

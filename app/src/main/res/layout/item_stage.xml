@@ -15,11 +15,14 @@
         app:layout_constraintBottom_toBottomOf="@id/imgStage"
         app:layout_constraintStart_toEndOf="@id/imgStage" />
 
-    <ImageView
+    <com.google.android.material.imageview.ShapeableImageView
         android:id="@+id/imgStage"
         android:layout_width="100dp"
         android:layout_height="100dp"
         android:layout_margin="16dp"
+        app:shapeAppearance="@style/RoundedStyle"
+        app:strokeColor="@color/cyan"
+        app:strokeWidth="2dp"
         android:contentDescription="@string/title_stage"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintBottom_toTopOf="@id/mdDiv"
