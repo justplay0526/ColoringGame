@@ -7,12 +7,13 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.LinearLayout
 import androidx.core.graphics.toColorInt
 import androidx.navigation.fragment.findNavController
 import androidx.navigation.fragment.navArgs
 import com.justplay.coloringgame.R
+import com.justplay.coloringgame.adapter.PaletteAdapter
 import com.justplay.coloringgame.databinding.FragmentColoringPlayBinding
+import kotlin.apply
 
 class ColoringPlayFragment : Fragment() {
     private val binding by lazy { FragmentColoringPlayBinding.inflate(layoutInflater) }
@@ -43,23 +44,16 @@ class ColoringPlayFragment : Fragment() {
         cv.setBitmaps(outline, idMap)
 
         // Build simple palette
-        val palette: LinearLayout = binding.palette
         val colors = listOf(
-            "#F94144".toColorInt(),
-            "#F3722C".toColorInt(),
-            "#F9C74F".toColorInt(),
-            "#90BE6D".toColorInt(),
-            "#577590".toColorInt(),
-            "#9B5DE5".toColorInt()
+            "#F94144".toColorInt(), "#F3722C".toColorInt(), "#F9C74F".toColorInt(),
+            "#90BE6D".toColorInt(), "#577590".toColorInt(), "#9B5DE5".toColorInt()
         )
-        colors.forEach { col ->
-            val swatch = View(requireContext()).apply {
-                setBackgroundColor(col)
-                layoutParams = LinearLayout.LayoutParams(64, 64).apply { setMargins(8,8,8,8) }
-                setOnClickListener { cv.setSelectedColor(col) }
-                contentDescription = "color"
-            }
-            palette.addView(swatch)
+
+        val paletteAdapter = PaletteAdapter()
+        binding.rvPalette.adapter = paletteAdapter
+        paletteAdapter.submitList(colors)
+        paletteAdapter.onItemClick = { col ->
+            cv.setSelectedColor(col)
         }
     }
 
